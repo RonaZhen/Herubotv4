@@ -1,0 +1,12 @@
+const express = require('express');
+const { TempMail } = require("1secmail-api");
+const app = express();
+const port = process.env.PORT || 3000;
+const path = require('path');
+app.use(express.static(path.join(process.cwd(), 'utils')));
+app.get('/', async function (_, res) {
+ res.send(path.join(process.cwd(), 'utils', 'index.html'))
+})
+app.listen(port, () => {
+  console.log('Bot is running on port ' + port)
+})
