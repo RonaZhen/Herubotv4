@@ -27,7 +27,7 @@ module.exports = {
       ).data;
 
       react("✅");
-      await api.editMessage('😝 𝚁𝚘𝚗𝚊 𝙰𝚒\n━━━━━━━━━━━━━━━━━━\n' + response.result, heru.messageID);
+      await api.editMessage('😝 𝚁𝚘𝚗𝚊 𝙰𝚒(𝙿𝚕𝚊𝚢𝚏𝚞𝚕)\n━━━━━━━━━━━━━━━━━━\n' + response.result, heru.messageID);
     } catch (e) {
       return reply(e.message);
     }
