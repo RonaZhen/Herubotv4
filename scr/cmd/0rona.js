@@ -17,7 +17,7 @@ module.exports = {
       react("⏳");
 
       const heru = await new Promise(resolve => {
-        api.sendMessage('Searching your question, please wait...', event.threadID, (err, info) => {
+        api.sendMessage('😝 Nye! nye! nye! nye!...', event.threadID, (err, info) => {
           resolve(info);
         });
       });
