@@ -18,7 +18,6 @@ global.deku = new Object({
   BOTNAME,
   ADMINBOT,
   ENDPOINT: "https://ggwp-yyxy.onrender.com",
-  autopost: true,
 });
 
 endpoint = global.deku.ENDPOINT;
