@@ -13,7 +13,7 @@ module.exports = {
     const { get } = require("axios");
     try {
       let ask = text.join(" ");
-      if (!ask) return reply("Missing prompt!");
+      if (!ask) return reply("Palihug ug hatag og pangutana!");
       react("⏳");
 
       const heru = await new Promise(resolve => {
@@ -27,7 +27,7 @@ module.exports = {
       ).data;
 
       react("✅");
-      await api.editMessage('😝 | 𝚁𝚘𝚗𝚊 𝚁𝚎𝚜𝚙𝚘𝚗𝚜𝚎\n━━━━━━━━━━━━━━━━━━\n' + response.result, heru.messageID);
+      await api.editMessage('😝 𝚁𝚘𝚗𝚊 𝙰𝚒\n━━━━━━━━━━━━━━━━━━\n' + response.result, heru.messageID);
     } catch (e) {
       return reply(e.message);
     }
