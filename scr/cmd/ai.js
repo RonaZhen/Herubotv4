@@ -32,8 +32,6 @@ module["exports"] = class {
         if (event.messageReply.attachments[0]?.type === "photo") {
           url = encodeURIComponent(event.messageReply.attachments[0].url);
 
-          await api.editMessage("Analyzing image...", waitingMessage.messageID);
-
           const res = (
             await axios.get(
               apiEndpoint +
@@ -47,7 +45,11 @@ module["exports"] = class {
           ).data;
 
           react("✅");
-          return reply(res.gemini);
+          await api.editMessage(
+            `✨ 𝙰𝚗𝚊𝚕𝚢𝚣𝚒𝚗𝚐 𝚒𝚖𝚊𝚐𝚎\n━━━━━━━━━━━━━━━━━━\n${res.gemini}`,
+            waitingMessage.messageID
+          );
+          return;
         } else {
           return reply("Please reply to an image.");
         }
@@ -66,6 +68,7 @@ module["exports"] = class {
       );
       
     } catch (e) {
+      react("❌");
       console.log(e);
       return reply(e.message);
     }
