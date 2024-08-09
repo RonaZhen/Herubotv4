@@ -17,8 +17,8 @@ module["exports"] = class {
       url;
 
     if (!prompt) return reply("Please enter a prompt.");
-    react("✨");
-    
+    react("🕛");
+
     const waitingMessage = await new Promise((resolve) => {
       api.sendMessage("Searching, please wait...", event.threadID, (err, info) => {
         resolve(info);
@@ -27,13 +27,13 @@ module["exports"] = class {
 
     try {
       const apiEndpoint = global.deku.ENDPOINT;
-      
+
       if (event.type === "message_reply") {
         if (event.messageReply.attachments[0]?.type === "photo") {
           url = encodeURIComponent(event.messageReply.attachments[0].url);
 
           await api.editMessage("Analyzing image...", waitingMessage.messageID);
-          
+
           const res = (
             await axios.get(
               apiEndpoint +
@@ -52,22 +52,6 @@ module["exports"] = class {
           return reply("Please reply to an image.");
         }
       }
-
-      const presidentRes = await axios.get("https://api.philippinesgov.com/president");
-      const currentPresident = presidentRes.data.currentPresident;
-
-      const currentDate = new Date().toLocaleString('en-PH', {
-        timeZone: 'Asia/Manila',
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric'
-      });
-
-      prompt += ` and what is the date today? Today is ${currentDate}. The current President of the Philippines is ${currentPresident}.`;
 
       const rest = (
         await axios.get(
