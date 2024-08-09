@@ -2,7 +2,7 @@ const axios = require('axios');
 
 module.exports = {
   config: {
-    name: "ai",
+    name: "adobo",
     description: "Interact with Adobo GPT AI",
     prefix: false,
     usage: "[query]",
@@ -30,7 +30,7 @@ module.exports = {
       const result = response.data.result;
 
       try {
-        await api.editMessage("🤖 𝙰𝚒 𝚁𝚎𝚜𝚙𝚘𝚗𝚜𝚎\n━━━━━━━━━━━━━━━━━━\n" + result + "\n━━━━━━━━━━━━━━━━━━", heru.messageID);
+        await api.editMessage("🤖 𝙰𝚍𝚘𝚋𝚘 𝙰𝚒\n━━━━━━━━━━━━━━━━━━\n" + result + "\n━━━━━━━━━━━━━━━━━━", heru.messageID);
       } catch (error) {
         console.error('Error:', error);
         api.sendMessage('Error: ' + error.message, event.threadID, event.messageID);
